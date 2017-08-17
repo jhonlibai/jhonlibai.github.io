@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jhonlibai.top/"/>
-  <updated>2017-08-11T07:48:25.724Z</updated>
+  <updated>2017-08-17T04:13:44.418Z</updated>
   <id>http://jhonlibai.top/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World Jhonlibai</title>
+    <title>Welcome</title>
+    <link href="http://jhonlibai.top/2017/08/17/Welcome/"/>
+    <id>http://jhonlibai.top/2017/08/17/Welcome/</id>
+    <published>2017-08-17T02:03:39.000Z</published>
+    <updated>2017-08-17T04:13:44.418Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是一个无聊的页面。。。。。。。。。。。。。。。。。。。。。。。</p>
+<h2 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h2><h3 id="加入我们"><a href="#加入我们" class="headerlink" title="加入我们"></a>加入我们</h3><p>1.QQ号：635839011 （同性交友）</p>
+<p>2.微信号：木有</p>
+<h3 id="图片插入"><a href="#图片插入" class="headerlink" title="图片插入"></a>图片插入</h3><ul>
+<li><p>图片1：<img src="file:///F:/blog/source/images/singing.jpg" alt="张喆"></p>
+</li>
+<li><p>图片2：<img src="file:///F:/blog/source/images/Jhon&amp;Emilia.jpg" alt="Jhon&amp;Emilia"></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;这是一个无聊的页面。。。。。。。。。。。。。。。。。。。。。。。&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="第一个试用页面" scheme="http://jhonlibai.top/tags/%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%AF%95%E7%94%A8%E9%A1%B5%E9%9D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
     <link href="http://jhonlibai.top/2017/08/11/hello-world/"/>
     <id>http://jhonlibai.top/2017/08/11/hello-world/</id>
     <published>2017-08-11T06:53:39.881Z</published>
-    <updated>2017-08-11T07:48:25.724Z</updated>
+    <updated>2017-08-17T02:05:19.696Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>

@@ -4,11 +4,28 @@
 
     
   <url>
-    <loc>http://jhonlibai.top/2017/08/11/hello-world/</loc>
-    <lastmod>2017-08-11T07:48:25.724Z</lastmod>
+    <loc>http://jhonlibai.top/2017/08/17/Welcome/</loc>
+    <lastmod>2017-08-17T04:13:44.418Z</lastmod>
     <data>
         <display>
-        <title>Hello World Jhonlibai</title>
+        <title>Welcome</title>
+        <pubTime>2017-08-17T02:03:39.000Z</pubTime>
+        
+        <tag>第一个试用页面</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jhonlibai.top/2017/08/11/hello-world/</loc>
+    <lastmod>2017-08-17T02:05:19.696Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
         <pubTime>2017-08-11T06:53:39.881Z</pubTime>
         
          
@@ -17,4 +34,8 @@
     </data>
     </url>
 
+    
+    
+    
+    
 </urlset>
