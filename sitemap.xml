@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jhonlibai.top/categories/index.html</loc>
+    
+    <lastmod>2017-08-25T06:58:58.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jhonlibai.top/tags/index.html</loc>
+    
+    <lastmod>2017-08-25T06:55:57.334Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jhonlibai.top/2017/08/23/%E9%9A%8F%E7%AC%940/</loc>
     
-    <lastmod>2017-08-23T08:58:39.986Z</lastmod>
+    <lastmod>2017-08-25T06:41:13.889Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jhonlibai.top/2017/08/24/%E9%9A%8F%E7%AC%941/</loc>
+    
+    <lastmod>2017-08-25T06:35:06.560Z</lastmod>
     
   </url>
   
@@ -26,20 +47,6 @@
     <loc>http://jhonlibai.top/about/index.html</loc>
     
     <lastmod>2017-08-17T02:01:03.720Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jhonlibai.top/categories/index.html</loc>
-    
-    <lastmod>2017-08-17T00:58:58.823Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jhonlibai.top/tags/index.html</loc>
-    
-    <lastmod>2017-08-17T00:53:07.909Z</lastmod>
     
   </url>
   
