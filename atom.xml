@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jhonlibai.top/"/>
-  <updated>2017-09-25T02:49:45.505Z</updated>
+  <updated>2017-09-25T04:05:52.087Z</updated>
   <id>http://jhonlibai.top/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>python学习日志0</title>
     <link href="http://jhonlibai.top/2017/09/25/Python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%970/"/>
     <id>http://jhonlibai.top/2017/09/25/Python学习日志0/</id>
     <published>2017-09-25T02:49:45.191Z</published>
-    <updated>2017-09-25T02:49:45.505Z</updated>
+    <updated>2017-09-25T04:05:52.087Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  在8月份我捣鼓了1个星期的hexo + next的静态博客。在观摩别人的博客，和在阅读了网上许多的配置教程。磕磕绊绊中，我也搭建了一个自己的博客。并且注册了一个自己域名jhonlibai.top。虽然搭建了博客，可自己是个懒猪，并没有更好地扩展和美化它。不过能够搭建自己的个人域名博客，还是很开心，有些自豪的。当初有这个搭建博客的想法，完全是因为被它美观、简洁的外表所吸引。<br>  然而搭建了之后，我就发现一个问题。怎么更新和管理。hexo是一个静态的博客框架。然，还缺少一些可以在线管理自己的博客的功能。不过有问题都可以找度娘。然后我们可以发现一个大家都积极推荐的一款软件markdown编辑器。用它就可以编辑文章内容了。不过要新建文章你还是要用到git。这在搭建hexo就要用到。嗯，，，说了那么多。好像和Python没关系。哈哈哈哈哈！<br>  接触Python是9月份的事了，就酱，下回想起在表。</p>
 ]]></content>
