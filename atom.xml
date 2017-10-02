@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jhonlibai.top/"/>
-  <updated>2017-09-25T04:05:52.087Z</updated>
+  <updated>2017-10-02T12:17:44.895Z</updated>
   <id>http://jhonlibai.top/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随笔4</title>
+    <link href="http://jhonlibai.top/2017/10/02/%E9%9A%8F%E7%AC%944/"/>
+    <id>http://jhonlibai.top/2017/10/02/随笔4/</id>
+    <published>2017-10-02T11:58:11.000Z</published>
+    <updated>2017-10-02T12:17:44.895Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天是10/1长假的第二天，一如往日的无所事是。下午跑去网吧上了半天的网。一个人时间长了，连选择游戏都是一件困惑的事情，已经不能像以前那样对某款游戏迷恋很长时间。现在只是打发时间的工具，一切的事物对我而言，看上去是那么的乏陈无味。感觉自己得了一种病，一种矫情的病。不然也不会在这写下不知所云的话语。<br>日子像一条干渴的河床，期待一场突如其来暴风雨。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;今天是10/1长假的第二天，一如往日的无所事是。下午跑去网吧上了半天的网。一
+    
+    </summary>
+    
+    
+      <category term="日记" scheme="http://jhonlibai.top/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>python学习日志0</title>
