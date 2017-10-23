@@ -276,6 +276,161 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jhonlibai.top/2017/10/23/python日志1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jhonlibai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jhonlibai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/23/python日志1/" itemprop="url">
+                  python日志1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T15:02:39+08:00">
+                2017-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/23/python日志1/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://jhonlibai.top/2017/10/23/python日志1/" class="cy_cmt_count" data-xid="2017/10/23/python日志1/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+
+                   <span class="post-time">
+          	   &nbsp; | &nbsp;
+                     <span class="post-meta-item-icon">
+                       <i class="fa fa-calendar-o"></i>
+                     </span>
+                     <span class="post-meta-item-text">字数统计:</span>
+                     <span class="post-count">344(字)</span>
+
+                   </span>
+
+                <span class="post-time">
+          	   &nbsp; | &nbsp;
+                     <span class="post-meta-item-icon">
+                       <i class="fa fa-calendar-o"></i>
+                     </span>
+                     <span class="post-meta-item-text">阅读时长:</span>
+                     <span class="post-count">2(分)</span>
+
+                   </span>
+
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>前几天在网易云课堂学了几集Python抓取实战。跟着视频的节奏尝试学着敲了下来。代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCommentCounts</span><span class="params">(newsurl)</span>:</span></div><div class="line">    m = re.search(<span class="string">'doc-i(.*).shtml'</span>, newsurl)</div><div class="line">    newsid = m.group(<span class="number">1</span>)</div><div class="line">    comments = requests.get(commenturl.format(newsid))</div><div class="line">    jd = json.loads(comments.text.strip(<span class="string">'var data='</span>))</div><div class="line">    <span class="keyword">return</span> jd[<span class="string">'result'</span>][<span class="string">'count'</span>][<span class="string">'total'</span>]</div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getNewsDetail</span><span class="params">(newsurl)</span>:</span></div><div class="line">    result = &#123;&#125;</div><div class="line">    res = requests.get(newsurl)</div><div class="line">    res.encoding = <span class="string">'utf-8'</span></div><div class="line">    soup = BeautifulSoup(res.text,<span class="string">'html.parser'</span>)</div><div class="line">    result[<span class="string">'title'</span>] = soup.select(<span class="string">'#artibodyTitle'</span>)[<span class="number">0</span>].text</div><div class="line">    result[<span class="string">'newssource'</span>] = soup.select(<span class="string">'.time-source span a'</span>)[<span class="number">0</span>].text</div><div class="line">    timesource = soup.select(<span class="string">'.time-source'</span>)[<span class="number">0</span>].contents[<span class="number">0</span>].strip()</div><div class="line">    result[<span class="string">'dt'</span>] = datetime.strptime(timesource,<span class="string">'%Y年%m月%d日%H:%M'</span>)</div><div class="line">    result[<span class="string">'article'</span>] = <span class="string">'@'</span>.join([p.text.strip() <span class="keyword">for</span> p <span class="keyword">in</span> soup.select(<span class="string">'#artibody p'</span>)[:<span class="number">-1</span>]])</div><div class="line">    result[<span class="string">'editor'</span>] = soup.select(<span class="string">'.article-editor'</span>)[<span class="number">0</span>].text</div><div class="line">    result[<span class="string">'comments'</span>] = getCommentCounts(newsurl)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line">newsurl = <span class="string">'http://news.sina.com.cn/c/nd/2017-10-21/doc-ifymzzpv8209433.shtml'</span></div><div class="line">commenturl = <span class="string">'http://comment5.news.sina.com.cn/page/info?version=1&amp;format=js&amp;channel=gn&amp;newsid=comos-&#123;&#125;&amp;group=&amp;compress=0&amp;ie=utf-8&amp;oe=utf-8&amp;page=1&amp;page_size=20'</span></div><div class="line">print(getNewsDetail(newsurl))</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></div><div class="line"><span class="string"><span class="meta">... </span>prompt'''</span></div></pre></td></tr></table></figure></p>
+<p>这是抓取了一个新浪新闻标题题为“清华生会游泳才能毕业？新生:游泳比考清华容易”的文章。抓取内容如下：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E6%8A%93%E5%8F%96%E5%86%85%E5%AE%B9.png" alt="抓取内容"><br>这段代码中定义了2个函数一个是获取文章细节：<br>    def getNewsDetail(newsurl):<br>另一个是获取文章评论数：<br>    def getCommentCounts(newsurl):<br>函数内是类似如下相关剖析代码：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E.png" alt="举例说明"><br>主要运用的python模块库有Request、BeautifulSoup4、re、json、datetime.<br>以上完结，撒花。<br>下次更新同时抓取多个文章内容。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jhonlibai.top/2017/10/02/随笔4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1612,7 +1767,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1625,7 +1780,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
