@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jhonlibai.top/"/>
-  <updated>2017-10-23T07:48:21.475Z</updated>
+  <updated>2017-10-23T07:54:52.501Z</updated>
   <id>http://jhonlibai.top/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://jhonlibai.top/2017/10/23/python%E6%97%A5%E5%BF%971/"/>
     <id>http://jhonlibai.top/2017/10/23/python日志1/</id>
     <published>2017-10-23T07:02:39.000Z</published>
-    <updated>2017-10-23T07:48:21.475Z</updated>
+    <updated>2017-10-23T07:54:52.501Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>前几天在网易云课堂学了几集Python抓取实战。跟着视频的节奏尝试学着敲了下来。代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCommentCounts</span><span class="params">(newsurl)</span>:</span></div><div class="line">    m = re.search(<span class="string">'doc-i(.*).shtml'</span>, newsurl)</div><div class="line">    newsid = m.group(<span class="number">1</span>)</div><div class="line">    comments = requests.get(commenturl.format(newsid))</div><div class="line">    jd = json.loads(comments.text.strip(<span class="string">'var data='</span>))</div><div class="line">    <span class="keyword">return</span> jd[<span class="string">'result'</span>][<span class="string">'count'</span>][<span class="string">'total'</span>]</div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getNewsDetail</span><span class="params">(newsurl)</span>:</span></div><div class="line">    result = &#123;&#125;</div><div class="line">    res = requests.get(newsurl)</div><div class="line">    res.encoding = <span class="string">'utf-8'</span></div><div class="line">    soup = BeautifulSoup(res.text,<span class="string">'html.parser'</span>)</div><div class="line">    result[<span class="string">'title'</span>] = soup.select(<span class="string">'#artibodyTitle'</span>)[<span class="number">0</span>].text</div><div class="line">    result[<span class="string">'newssource'</span>] = soup.select(<span class="string">'.time-source span a'</span>)[<span class="number">0</span>].text</div><div class="line">    timesource = soup.select(<span class="string">'.time-source'</span>)[<span class="number">0</span>].contents[<span class="number">0</span>].strip()</div><div class="line">    result[<span class="string">'dt'</span>] = datetime.strptime(timesource,<span class="string">'%Y年%m月%d日%H:%M'</span>)</div><div class="line">    result[<span class="string">'article'</span>] = <span class="string">'@'</span>.join([p.text.strip() <span class="keyword">for</span> p <span class="keyword">in</span> soup.select(<span class="string">'#artibody p'</span>)[:<span class="number">-1</span>]])</div><div class="line">    result[<span class="string">'editor'</span>] = soup.select(<span class="string">'.article-editor'</span>)[<span class="number">0</span>].text</div><div class="line">    result[<span class="string">'comments'</span>] = getCommentCounts(newsurl)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line">newsurl = <span class="string">'http://news.sina.com.cn/c/nd/2017-10-21/doc-ifymzzpv8209433.shtml'</span></div><div class="line">commenturl = <span class="string">'http://comment5.news.sina.com.cn/page/info?version=1&amp;format=js&amp;channel=gn&amp;newsid=comos-&#123;&#125;&amp;group=&amp;compress=0&amp;ie=utf-8&amp;oe=utf-8&amp;page=1&amp;page_size=20'</span></div><div class="line">print(getNewsDetail(newsurl))</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></div><div class="line"><span class="string"><span class="meta">... </span>prompt'''</span></div></pre></td></tr></table></figure></p>
-<p>这是抓取了一个新浪新闻标题题为“清华生会游泳才能毕业？新生:游泳比考清华容易”的文章。抓取内容如下：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E6%8A%93%E5%8F%96%E5%86%85%E5%AE%B9.png" alt="抓取内容"><br>这段代码中定义了2个函数一个是获取文章细节：<br>    def getNewsDetail(newsurl):<br>另一个是获取文章评论数：<br>    def getCommentCounts(newsurl):<br>函数内是类似如下相关剖析代码：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E.png" alt="举例说明"><br>主要运用的python模块库有Request、BeautifulSoup4、re、json、datetime.<br>以上完结，撒花。<br>下次更新同时抓取多个文章内容。</p>
+<p>这是抓取了一个新浪新闻标题为“清华生会游泳才能毕业？新生:游泳比考清华容易”的文章。抓取内容如下：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E6%8A%93%E5%8F%96%E5%86%85%E5%AE%B9.png" alt="抓取内容"><br>这段代码中定义了2个函数一个是获取文章细节：<br>    def getNewsDetail(newsurl):<br>另一个是获取文章评论数：<br>    def getCommentCounts(newsurl):<br>函数内是类似如下相关剖析代码：<br><img src="http://ov67n3jz8.bkt.clouddn.com/%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E.png" alt="举例说明"><br>主要运用的python模块库有Request、BeautifulSoup4、re、json、datetime.<br>以上完结，撒花。<br>下次更新同时抓取多个文章内容。</p>
 ]]></content>
     
     <summary type="html">
@@ -42,7 +42,7 @@
     <link href="http://jhonlibai.top/2017/10/02/%E9%9A%8F%E7%AC%944/"/>
     <id>http://jhonlibai.top/2017/10/02/随笔4/</id>
     <published>2017-10-02T11:58:11.000Z</published>
-    <updated>2017-10-02T12:17:44.895Z</updated>
+    <updated>2017-10-02T12:17:44.896Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>今天是10/1长假的第二天，一如往日的无所事是。下午跑去网吧上了半天的网。一个人时间长了，连选择游戏都是一件困惑的事情，已经不能像以前那样对某款游戏迷恋很长时间。现在只是打发时间的工具，一切的事物对我而言，看上去是那么的乏陈无味。感觉自己得了一种病，一种矫情的病。不然也不会在这写下不知所云的话语。<br>日子像一条干渴的河床，期待一场突如其来暴风雨。</p>
 ]]></content>
@@ -62,7 +62,7 @@
     <title>python学习日志0</title>
     <link href="http://jhonlibai.top/2017/09/25/Python%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%970/"/>
     <id>http://jhonlibai.top/2017/09/25/Python学习日志0/</id>
-    <published>2017-09-25T02:49:45.191Z</published>
+    <published>2017-09-25T02:49:45.192Z</published>
     <updated>2017-09-25T04:05:52.087Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  在8月份我捣鼓了1个星期的hexo + next的静态博客。在观摩别人的博客，和在阅读了网上许多的配置教程。磕磕绊绊中，我也搭建了一个自己的博客。并且注册了一个自己域名jhonlibai.top。虽然搭建了博客，可自己是个懒猪，并没有更好地扩展和美化它。不过能够搭建自己的个人域名博客，还是很开心，有些自豪的。当初有这个搭建博客的想法，完全是因为被它美观、简洁的外表所吸引。<br>  然而搭建了之后，我就发现一个问题。怎么更新和管理。hexo是一个静态的博客框架。然，还缺少一些可以在线管理自己的博客的功能。不过有问题都可以找度娘。然后我们可以发现一个大家都积极推荐的一款软件markdown编辑器。用它就可以编辑文章内容了。不过要新建文章你还是要用到git。这在搭建hexo就要用到。嗯，，，说了那么多。好像和Python没关系。哈哈哈哈哈！<br>  接触Python是9月份的事了，就酱，下回想起在表。</p>
@@ -81,8 +81,8 @@
     <title>随笔3</title>
     <link href="http://jhonlibai.top/2017/08/29/%E9%9A%8F%E7%AC%943/"/>
     <id>http://jhonlibai.top/2017/08/29/随笔3/</id>
-    <published>2017-08-29T08:13:50.606Z</published>
-    <updated>2017-08-29T08:22:52.212Z</updated>
+    <published>2017-08-29T08:13:50.607Z</published>
+    <updated>2017-08-29T08:22:52.213Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="生无可恋"><a href="#生无可恋" class="headerlink" title="生无可恋"></a>生无可恋</h1><blockquote>
 <ul>
@@ -159,7 +159,7 @@
     <link href="http://jhonlibai.top/2017/08/24/%E9%9A%8F%E7%AC%941/"/>
     <id>http://jhonlibai.top/2017/08/24/随笔1/</id>
     <published>2017-08-24T04:07:16.000Z</published>
-    <updated>2017-08-25T06:35:06.560Z</updated>
+    <updated>2017-08-25T06:35:06.561Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="七牛云存图试用篇"><a href="#七牛云存图试用篇" class="headerlink" title="七牛云存图试用篇"></a>七牛云存图试用篇</h1><ul>
 <li><p>图片1: <img src="http://ov67n3jz8.bkt.clouddn.com/singing.jpg" alt="张喆"></p>
@@ -220,7 +220,7 @@
     <link href="http://jhonlibai.top/2017/08/17/Welcome/"/>
     <id>http://jhonlibai.top/2017/08/17/Welcome/</id>
     <published>2017-08-17T02:03:39.000Z</published>
-    <updated>2017-08-23T08:22:33.836Z</updated>
+    <updated>2017-08-23T08:22:33.837Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是一个无聊的页面。。。。。。。。。。。。。。。。。。。。。。。</p>
 <h2 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h2><a id="more"></a>
@@ -252,7 +252,7 @@
     <link href="http://jhonlibai.top/2017/08/11/hello-world/"/>
     <id>http://jhonlibai.top/2017/08/11/hello-world/</id>
     <published>2017-08-11T06:53:39.881Z</published>
-    <updated>2017-08-18T04:53:41.395Z</updated>
+    <updated>2017-08-18T04:53:41.396Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
