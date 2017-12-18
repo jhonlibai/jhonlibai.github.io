@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jhonlibai's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="闲话时隔一个多月，（额，不，快两个月了。汗！）我终于想起来写我的学习日志了。上个星期我“又双”找了一些爬虫的学习视频。以下是我根据视频里的讲解将代码摘录出的。（侵，删）貌似也没人会看我的blog呢。该系列的爬虫视频一共4期，我才看了2期。感觉讲得很好。所以我也把人家的教学内容里的代码给搬过来了，汗！这次搬运过来的2篇爬虫练习是：1.爬取豆瓣电影top250（网上好多类似爬取豆瓣的。）；2.爬取网易">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习日志2">
+<meta property="og:url" content="http://jhonlibai.top/2017/12/18/python日志2/index.html">
+<meta property="og:site_name" content="Jhonlibai&#39;s Blog">
+<meta property="og:description" content="闲话时隔一个多月，（额，不，快两个月了。汗！）我终于想起来写我的学习日志了。上个星期我“又双”找了一些爬虫的学习视频。以下是我根据视频里的讲解将代码摘录出的。（侵，删）貌似也没人会看我的blog呢。该系列的爬虫视频一共4期，我才看了2期。感觉讲得很好。所以我也把人家的教学内容里的代码给搬过来了，汗！这次搬运过来的2篇爬虫练习是：1.爬取豆瓣电影top250（网上好多类似爬取豆瓣的。）；2.爬取网易">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-18T08:46:23.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习日志2">
+<meta name="twitter:description" content="闲话时隔一个多月，（额，不，快两个月了。汗！）我终于想起来写我的学习日志了。上个星期我“又双”找了一些爬虫的学习视频。以下是我根据视频里的讲解将代码摘录出的。（侵，删）貌似也没人会看我的blog呢。该系列的爬虫视频一共4期，我才看了2期。感觉讲得很好。所以我也把人家的教学内容里的代码给搬过来了，汗！这次搬运过来的2篇爬虫练习是：1.爬取豆瓣电影top250（网上好多类似爬取豆瓣的。）；2.爬取网易">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jhonlibai.top/2017/12/18/python日志2/"/>
+
+
+
+
+
+  <title> python学习日志2 | Jhonlibai's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jhonlibai's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <a href="https://github.com/jhonlibai"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jhonlibai.top/2017/12/18/python日志2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jhonlibai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jhonlibai's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python学习日志2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T14:04:08+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/12/18/python日志2/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/12/18/python日志2/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+
+                   <span class="post-time">
+          	   &nbsp; | &nbsp;
+                     <span class="post-meta-item-icon">
+                       <i class="fa fa-calendar-o"></i>
+                     </span>
+                     <span class="post-meta-item-text">字数统计:</span>
+                     <span class="post-count">790(字)</span>
+
+                   </span>
+
+                <span class="post-time">
+          	   &nbsp; | &nbsp;
+                     <span class="post-meta-item-icon">
+                       <i class="fa fa-calendar-o"></i>
+                     </span>
+                     <span class="post-meta-item-text">阅读时长:</span>
+                     <span class="post-count">4(分)</span>
+
+                   </span>
+
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h2><p>时隔一个多月，（额，不，快两个月了。汗！）我终于想起来写我的学习日志了。上个星期我“又双”找了一些爬虫的学习视频。以下是我根据视频里的讲解将代码摘录出的。（侵，删）貌似也没人会看我的blog呢。该系列的爬虫视频一共4期，我才看了2期。感觉讲得很好。所以我也把人家的教学内容里的代码给搬过来了，汗！这次搬运过来的2篇爬虫练习是：1.爬取豆瓣电影top250（网上好多类似爬取豆瓣的。）；2.爬取网易云音乐热评。</p>
+<h2 id="第一篇：爬取豆瓣电影top250"><a href="#第一篇：爬取豆瓣电影top250" class="headerlink" title="第一篇：爬取豆瓣电影top250"></a>第一篇：爬取豆瓣电影top250</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">open_url</span><span class="params">(url)</span>:</span></div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'</span></div><div class="line">    &#125;</div><div class="line">    res = requests.get(url, headers= headers)</div><div class="line">    <span class="keyword">return</span> res</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_movies</span><span class="params">(res)</span>:</span></div><div class="line">    soup = BeautifulSoup(res.text, <span class="string">'html.parser'</span>)</div><div class="line"></div><div class="line">    <span class="comment">#电影名</span></div><div class="line">    movies = []</div><div class="line">    targets = soup.find_all(<span class="string">'div'</span>, class_=<span class="string">'hd'</span>)</div><div class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> targets:</div><div class="line">        movies.append(each.a.span.text)</div><div class="line"></div><div class="line">    <span class="comment">#评分</span></div><div class="line">    ranks = []</div><div class="line">    targets = soup.find_all(<span class="string">'span'</span>, class_=<span class="string">'rating_num'</span>)</div><div class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> targets:</div><div class="line">        ranks.append(<span class="string">'评分: %s'</span> % each.text)</div><div class="line"></div><div class="line">    <span class="comment">#资料</span></div><div class="line">    messages = []</div><div class="line">    targets = soup.find_all(<span class="string">'div'</span>, class_=<span class="string">'bd'</span>)</div><div class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> targets:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            messages.append(each.p.text.split(<span class="string">'\n'</span>)[<span class="number">1</span>].strip() + each.p.text.split(<span class="string">'\n'</span>)[<span class="number">2</span>].strip())</div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">continue</span></div><div class="line"></div><div class="line">    result = []</div><div class="line">    length = len(movies)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(length):</div><div class="line">        result.append(movies[i] + ranks[i] + messages[i] + <span class="string">'\n'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">return</span>  result</div><div class="line"></div><div class="line"><span class="comment">#找出一共多少个页面</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_depth</span><span class="params">(res)</span>:</span></div><div class="line">    soup = BeautifulSoup(res.text, <span class="string">'html.parser'</span>)</div><div class="line">    depth = soup.find(<span class="string">'span'</span>, class_=<span class="string">'next'</span>).previous_sibling.previous_sibling.text</div><div class="line">    <span class="keyword">return</span> int(depth)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    host = <span class="string">"https://movie.douban.com/top250"</span></div><div class="line">    res = open_url(host)</div><div class="line">    depth = find_depth(res)</div><div class="line"></div><div class="line">    result = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(depth):</div><div class="line">        url = host + <span class="string">'/?start='</span> + str(<span class="number">25</span> * i)</div><div class="line">        res = open_url(url)</div><div class="line">        result.extend(find_movies(res))</div><div class="line">        </div><div class="line">    <span class="comment">#将爬取的资源写入txt文本。</span></div><div class="line">    <span class="keyword">with</span> open(<span class="string">"豆瓣TOP250电影.txt"</span>, <span class="string">"w"</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> result:</div><div class="line">            f.write(each)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+<p>这段代码主要运用了python的3个主流模块requests，beautifsoup,re(正则)。在主函数中作者还加了一个将爬取的资源写入text文本操作。在find_movies函数中，作者分别抓取了电影名称，评分，资料。然后在利用find_depth函数统计网页的页数。将上述爬取的功能在统计出的页数内循环。最后写入txt文档。</p>
+<h2 id="第二篇：爬取网易云音乐热评"><a href="#第二篇：爬取网易云音乐热评" class="headerlink" title="第二篇：爬取网易云音乐热评"></a>第二篇：爬取网易云音乐热评</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_hot_comments</span><span class="params">(res)</span>:</span></div><div class="line">    comments_json = json.loads(res.text)</div><div class="line">    hot_comments = comments_json[<span class="string">'hotComments'</span>]</div><div class="line">    <span class="keyword">with</span> open(<span class="string">'hot_comments.txt'</span>, <span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> file:</div><div class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> hot_comments:</div><div class="line">            file.write(each[<span class="string">'user'</span>][<span class="string">'nickname'</span>] + <span class="string">' :\n\n'</span>)</div><div class="line">            file.write(each[<span class="string">'content'</span>] + <span class="string">'\n'</span>)</div><div class="line">            file.write(<span class="string">"----------------------------------\n"</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_comments</span><span class="params">(url)</span>:</span></div><div class="line">    name_id = url.split(<span class="string">'='</span>)[<span class="number">1</span>]</div><div class="line"></div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'</span>,</div><div class="line">        <span class="string">'referer'</span>: <span class="string">'http://music.163.com/song?id=299116'</span></div><div class="line">    &#125;</div><div class="line">    params = <span class="string">"kVOK9yH1g693xp2kbk / C / TQ6HdH / 8ksAbmy8lusmgpPjwDnEvOZn5CdJAcfbQ6DbKOGbwfCVtZWHFxayfe9jDW77R4aITNkgJoStKlPNjM0ABvKBYOo2yuvBdP3d + B5g5uO1Me5M7 + CTwRQvnZNp39zwQ3P4kJ2ab0txZEDt5H38FwqtJ4YlaIqoE5JA + 2hb5OsPJBX4xzUyfzSLlkJTMclcADmsV8OqTw4QyKSMyqk "</span></div><div class="line">    encSecKey = <span class="string">"2f5e2a9247b9ebb24da8cf961dc5bd0e7db6d220fe41e06fe10cd936ebf8df629b3336fd8475198c206bb45816ddabbc9c7cfbe9894603d9ab1589857e8eb498312cf1360ab2b3db35be6648fe80091b21454c89e453e4546613f93b98197bc2e40e7e1c01b0f43d19a113f58939127dacaecfd670ed5d242cd19e2a2aed5262"</span></div><div class="line">    data = &#123;</div><div class="line">        <span class="string">"params"</span>:params,</div><div class="line">        <span class="string">"encSecKey"</span>:encSecKey</div><div class="line">    &#125;</div><div class="line">    target_url = <span class="string">"http://music.163.com/weapi/v1/resource/comments/R_SO_4_&#123;&#125;?csrf_token="</span>.format(name_id)</div><div class="line">    res = requests.post(target_url, headers=headers,data=data)</div><div class="line">    <span class="keyword">return</span> res</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    url = input(<span class="string">"请输入链接地址："</span>)</div><div class="line">    res = get_comments(url)</div><div class="line">    hot_comments = get_hot_comments(res)</div><div class="line"></div><div class="line">    <span class="keyword">with</span> open(<span class="string">"res.txt"</span>, <span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> file:</div><div class="line">        file.write(res.text)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure>
+<p>以上是爬取网易云音乐网页版单首歌曲的热门评论的代码。你只要输入链接地址就可以爬取热门评论。要注意的是在get_comments函数中headers，params，encSeckey所赋值的一长串字符是需要在网页的“检查”中摘取，具体摘取方法请点击链接：<a href="https://www.bilibili.com/video/av15834715/#page=4/" target="_blank" rel="external">爬取网易云音乐热门评论</a> </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/23/python日志1/" rel="next" title="python日志1">
+                <i class="fa fa-chevron-left"></i> python日志1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jhonlibai" />
+          <p class="site-author-name" itemprop="name">Jhonlibai</p>
+           
+              <p class="site-description motion-element" itemprop="description">Life is a stranger</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jhonlibai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://steamcommunity.com/profiles/76561198294041016/" target="_blank" title="steam">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  steam
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2729224321?is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/tang-peng-60/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闲话"><span class="nav-number">1.</span> <span class="nav-text">闲话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一篇：爬取豆瓣电影top250"><span class="nav-number">2.</span> <span class="nav-text">第一篇：爬取豆瓣电影top250</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二篇：爬取网易云音乐热评"><span class="nav-number">3.</span> <span class="nav-text">第二篇：爬取网易云音乐热评</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jhonlibai</span>
+</div>
+
+
+<div class="powered-by">
+  由 jhonlibai 个人专属
+</div>
+
+<div class="theme-info">
+  博客 -
+  jhonlibai
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytbiOJwT';
+      var conf = '9797227d76a2af184bde12f8e3b6e64f';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.7' zIndex="-2" count="24" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
