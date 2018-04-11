@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jhonlibai.top/"/>
-  <updated>2018-04-11T14:33:10.180Z</updated>
+  <updated>2018-04-11T15:19:13.440Z</updated>
   <id>http://jhonlibai.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jhonlibai.top/2018/04/11/%E5%B8%B8%E8%A7%81%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E7%82%B9/"/>
     <id>http://jhonlibai.top/2018/04/11/常见功能测试点/</id>
     <published>2018-04-11T12:36:25.000Z</published>
-    <updated>2018-04-11T14:33:10.180Z</updated>
+    <updated>2018-04-11T15:19:13.440Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近在面试软件测试的相关工作，面试的时候发现光有一些理论的知识还远远不够，问到一些测试用例的编写，还是有些语塞。昨天下午的面试面完，好心的小姐姐前辈还教导相关测试用例相关经验。回来之后，我在网上也淘了一些。摘抄如下（搬运）：</p>
 <h1 id="1-登陆、添加、删除、查询模块常见的测试点"><a href="#1-登陆、添加、删除、查询模块常见的测试点" class="headerlink" title="1.登陆、添加、删除、查询模块常见的测试点"></a>1.登陆、添加、删除、查询模块常见的测试点</h1><h2 id="1）登陆"><a href="#1）登陆" class="headerlink" title="1）登陆"></a>1）登陆</h2><ul>
@@ -70,6 +70,7 @@
 <li>输入一些字符，看是否能查出数据库中所有的相关信息</li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="2-设计功能测试用例"><a href="#2-设计功能测试用例" class="headerlink" title="2.设计功能测试用例"></a>2.设计功能测试用例</h1><h2 id="文本框的测试"><a href="#文本框的测试" class="headerlink" title="文本框的测试"></a>文本框的测试</h2><ul>
 <li>输入正常的字母或数字</li>
 <li>输入已存在的文件的名称</li>
@@ -146,7 +147,54 @@
     
     <summary type="html">
     
-      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;p&gt;最近在面试软件测试的相关工作，面试的时候发现光有一些理论的知识还远远不够，问
+      &lt;p&gt;最近在面试软件测试的相关工作，面试的时候发现光有一些理论的知识还远远不够，问到一些测试用例的编写，还是有些语塞。昨天下午的面试面完，好心的小姐姐前辈还教导相关测试用例相关经验。回来之后，我在网上也淘了一些。摘抄如下（搬运）：&lt;/p&gt;
+&lt;h1 id=&quot;1-登陆、添加、删除、查询模块常见的测试点&quot;&gt;&lt;a href=&quot;#1-登陆、添加、删除、查询模块常见的测试点&quot; class=&quot;headerlink&quot; title=&quot;1.登陆、添加、删除、查询模块常见的测试点&quot;&gt;&lt;/a&gt;1.登陆、添加、删除、查询模块常见的测试点&lt;/h1&gt;&lt;h2 id=&quot;1）登陆&quot;&gt;&lt;a href=&quot;#1）登陆&quot; class=&quot;headerlink&quot; title=&quot;1）登陆&quot;&gt;&lt;/a&gt;1）登陆&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;用户名和密码都符合要求（格式上的要求）&lt;/li&gt;
+&lt;li&gt;用户名和密码都不符合要求（格式上的要求）&lt;/li&gt;
+&lt;li&gt;用户名符合要求，密码不符合要求（格式上的要求）&lt;/li&gt;
+&lt;li&gt;密码符合要求，用户名不符合要求（格式上的要求）&lt;/li&gt;
+&lt;li&gt;用户名或密码为空&lt;/li&gt;
+&lt;li&gt;数据库中不存在的用户名，不存在的密码&lt;/li&gt;
+&lt;li&gt;数据库中存在的用户名，错误的密码&lt;/li&gt;
+&lt;li&gt;数据库中不存在的用户名，存在的密码&lt;/li&gt;
+&lt;li&gt;输入的数据存在空格&lt;/li&gt;
+&lt;li&gt;输入正确的用户名密码以后按【enter】是否能登陆&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;2）添加&quot;&gt;&lt;a href=&quot;#2）添加&quot; class=&quot;headerlink&quot; title=&quot;2）添加&quot;&gt;&lt;/a&gt;2）添加&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;要添加的数据项均合理，检查数据库中是否添加了相应的数据&lt;/li&gt;
+&lt;li&gt;留出一个必填数据为空&lt;/li&gt;
+&lt;li&gt;按照边界值等价类设计测试用例的原则设计其他输入项的测试用例&lt;/li&gt;
+&lt;li&gt;不符合要求的地方要有错误提示&lt;/li&gt;
+&lt;li&gt;是否支持table键&lt;/li&gt;
+&lt;li&gt;按enter是否能保存&lt;/li&gt;
+&lt;li&gt;若提示不能保存，也要查看数据库里是否多了一条数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;3）删除&quot;&gt;&lt;a href=&quot;#3）删除&quot; class=&quot;headerlink&quot; title=&quot;3）删除&quot;&gt;&lt;/a&gt;3）删除&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;删除一个数据库中存在的数据，然后查看数据库中是否删除&lt;/li&gt;
+&lt;li&gt;删除一个数据库中并不存在的数据，看是否有错误提示，并且数据库中有没有数据被删除&lt;/li&gt;
+&lt;li&gt;输入一个格式错误的数据，看是否有错误提示，并且数据库中没有数据被删除&lt;/li&gt;
+&lt;li&gt;输入的正确数据前加空格，看是否能正确删除数据&lt;/li&gt;
+&lt;li&gt;什么也不输入&lt;/li&gt;
+&lt;li&gt;是否支持table键&lt;/li&gt;
+&lt;li&gt;是否支持enter键&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;4）查询&quot;&gt;&lt;a href=&quot;#4）查询&quot; class=&quot;headerlink&quot; title=&quot;4）查询&quot;&gt;&lt;/a&gt;4）查询&lt;/h2&gt;&lt;h3 id=&quot;精确查询：&quot;&gt;&lt;a href=&quot;#精确查询：&quot; class=&quot;headerlink&quot; title=&quot;精确查询：&quot;&gt;&lt;/a&gt;精确查询：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;输入的查询条件为数据库中存在的数据，看是否能正确地查出相应的数据&lt;/li&gt;
+&lt;li&gt;输入正确的查询条件以前加上空格，看是否能正确地查出相应的数据&lt;/li&gt;
+&lt;li&gt;输入格式或范围不符合要求的数据，看是否有错误提示&lt;/li&gt;
+&lt;li&gt;输入数据库中不存在的数据&lt;/li&gt;
+&lt;li&gt;不输入任何数据&lt;/li&gt;
+&lt;li&gt;是否支持table键&lt;/li&gt;
+&lt;li&gt;是否支持enter键&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;模糊查询：&quot;&gt;&lt;a href=&quot;#模糊查询：&quot; class=&quot;headerlink&quot; title=&quot;模糊查询：&quot;&gt;&lt;/a&gt;模糊查询：&lt;/h3&gt;&lt;p&gt;在精确查询的基础上加上以下一点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入一些字符，看是否能查出数据库中所有的相关信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
     
     </summary>
     
